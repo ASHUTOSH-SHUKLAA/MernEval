@@ -5,23 +5,30 @@ const express=('express');
 const app=express();
 
 const Product = () => {
+  const [name,setName]=useState("");
+  const [price,setPrice]=useState();
+  const [discount,setDiscout]=useState();
+  const [category,setCategory]=useState("");
   const handleSubmit=()=>{
+    const apiObj={
+      url:"",
+      data:{
+        name,price,discount,category
+      }
+    }
     app.post('/', (req, res) => {
-        
+        axios.send(apiObj)
     })
     
+    
   }
- const [name,setName]=useState("");
- const [price,setPrice]=useState();
- const [Discount,setDiscout]=useState();
- const [category,setCategory]=useState("");
   return (
     <div>
       <form>
-        <input type="String" placeholder="name" setName={}/>
-        <input type="number" placeholder="price"/>
-        <input type="number" placeholder="Discount"/>
-        <input type="String" placholder="category"/>
+        <input value={value} type="String" placeholder="name" setName={value}/>
+        <input value={value} type="number" placeholder="price" setPrice={value}/>
+        <input value={value} type="number" placeholder="Discount" setDiscout={value}/>
+        <input value={value} type="String" placholder="category"setCategory={value}/>
         <button onClick={handleSubmit}>Submit</button>
       </form>
 
